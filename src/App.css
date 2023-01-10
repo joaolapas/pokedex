@@ -86,7 +86,6 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(rgb(225, 226, 205), rgb(241, 216, 216));
   box-sizing: border-box;
 
 }
