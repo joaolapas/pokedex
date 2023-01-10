@@ -6,14 +6,14 @@ const Pokedex = (props) => {
  
   return (
     <div className="pokedex-container">
-      <div className="pokedex-pagina">paginação</div>
-      <div className="card-container">{loading ? <div>Carregando</div> : <div className="pokedex-grid">
+      <div className="pokedex-pagina"></div>
+      {loading ? <div>Carregando</div> : <div className="pokedex-grid">
         {pokemons && pokemons.map((pokemon, index)=>{
             return(
                 <Pokemon pokemon ={pokemon} key={index} />
             )
         })}
-      </div>}</div>
+      </div>}
     </div>
   );
 };
