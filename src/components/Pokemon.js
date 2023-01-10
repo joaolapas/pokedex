@@ -24,17 +24,55 @@ const Pokemon = (props) => {
     },
   };
 
-  const triggerModal = () => setShowModal(!showModal);
+  const triggerModal = () => setShowModal((prev)=>!prev);
+  const [ favorite, setFavorite ] = useState(false)
+  const handleFav = ()=>setFavorite((prev)=>!prev)
+
+  const nameUppercase = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+
+  const colors = {
+    fire: '#dc5c2a',
+    grass: '#41d54e',
+    electric: 'yellow',
+    water: 'lightblue',
+    ground: 'peru',
+    rock: 'gray',
+    fairy: '#fceaff',
+    poison: 'purple',
+    bug: 'lemonchiffon',
+    dragon: 'mediumorchid',
+    psychic: 'indigo',
+    flying: '#f5f5f5',
+    fighting: '#e6e0d4',
+    normal: '#f5f5f5'
+  }
+
+  const defineColor = () =>{
+    for (let x in colors){
+        if (x == pokemon.types[0].type.name){
+            return colors[x]
+        }
+    }
+  }
   return (
-    <div className="pokemon-card" onClick={triggerModal}>
-      <img src={pokemon.sprites.front_default} />
-      <div>
-        #{pokemon.id} - {pokemon.name}
+    <div>
+    
+    <div className="pokemon-card" onClick={triggerModal} style={{background: `linear-gradient(${defineColor()}, lightgray`}}>
+    <div className="grid-heart">{favorite?'❤️':'🤍'}</div>
+        <div className="circle"></div>
+      <div className="img-container" >
+        <img src={pokemon['sprites']['other']['official-artwork'].front_default} />
       </div>
-      <Modal style={customStyles} isOpen={showModal}>
-        <ModalCard className="modal" pokemon={pokemon} />
+      <div>
+        #{pokemon.id} - {nameUppercase}
+        
+      </div>
+      
+    </div>
+    <Modal style={customStyles} isOpen={showModal} onRequestClose={triggerModal}>
+        <ModalCard typeColor={defineColor()}favorite={favorite} fav={handleFav} className="modal" pokemon={pokemon} />
         <button onClick={triggerModal}>Close</button>
-      </Modal>
+    </Modal>
     </div>
   );
 };

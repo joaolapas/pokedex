@@ -54,9 +54,9 @@ nav {
 }
 
 .pokedex-container {
-  background: rgb(206, 57, 57);
+  background: linear-gradient(80deg,#c54a4a, #9b3535);
   height: 80vh;
-  width: 80vw;
+  max-width: 1200px;
   border-radius: 20px;
 
 }
@@ -79,20 +79,41 @@ nav {
 .pokemon-card {
   width: 150px;
   height: 150px;
-  border: 2px solid black;
+  box-shadow: 5px 5px 10px black;
   border-radius: 10px;
   margin: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: aliceblue;
+  background: linear-gradient(rgb(225, 226, 205), rgb(241, 216, 216));
+  box-sizing: border-box;
 
 }
+
 .pokemon-card:hover {
-  background-color:darkgray;
+  background-color:white;
   font-weight: 800;
   transition: 0.3s;
+  transform:scale(1.2);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.369);
+
+}
+
+
+.img-container {
+  background-color: white;
+  border-radius: 50%;
+  justify-self: flex-end;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img-container>img {
+  width: 120%;
+  
 }
 .modal {
   display: flex;
@@ -115,7 +136,7 @@ nav {
   border-radius: 20px;
   width: 300px;
   height: 480px;
-  background-color: rgb(206, 57, 57);
+  background: linear-gradient(80deg,#c54a4a, #9b3535);
   box-shadow: 5px 5px 25px black;
 }
 
@@ -149,17 +170,23 @@ nav {
 .modal-card-name h3 {
   display: inline;
 }
-.modal-card-id {
 
-}
 
-.modal-card>img {
+.modal-img-container {
   width: 260px;
+  height: 260px;
   background-color: rgb(25, 43, 6);
   border: 2px solid black;
   box-shadow: -5px -5px 5px black;
   border-radius: 20px;
-  margin: 25px
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-img-container>img {
+  width:50%;
 }
 
 .modal-card-bottom {
@@ -189,3 +216,18 @@ nav {
   align-items: center;
   justify-content: center;
 }
+
+.heart {
+  position:relative;
+  right: -40px;
+  bottom: -100px;
+  cursor: pointer;
+}
+.grid-heart {
+  position: relative;
+  top: 5px;
+  left: -55px;
+  cursor: pointer;
+}
+
+

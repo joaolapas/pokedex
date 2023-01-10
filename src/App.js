@@ -30,7 +30,7 @@ function App() {
   }, []);
 
   return (
-    <div className="main-container">
+    <div id='main' className="main-container">
       <Navbar />
       <Searchbar />
       <Pokedex pokemons={pokemons} loading={loading} />
